@@ -1,74 +1,66 @@
 
 import Carousel from 'react-material-ui-carousel'
 import {CarouselCard} from './CarouselCard'
+import { ThumbnailCard } from './ThumbnailCard'
 import one from "../assets/one.avif"
-import two from "../assets/two.avif"
+
 import three from "../assets/three.avif"
 import four from "../assets/four.avif"
+
 export default function CarouselExample()
 {
-  
     const items:Items[] = [
         {
            picture:one,
-           description:"www"
-        },
-        {
-            picture:two,
-            description: "Hello World!"
+           description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
         },
         {
             picture:three,
-            description:"www"
+            description:"but also the leap into electronic typesetting, remaining essentially unchanged. "
          },
          {
             picture:four,
-            description:"www"
+            description:"orem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book "
          },
     ]
 
     return (
+        <div className='carousel-template'>
         <Carousel
-          fullHeightHover={false}
+          fullHeightHover={true}
           autoPlay={true}
-        //   interval={3000}
+          interval={3000}
           stopAutoPlayOnHover={true}
           animation='fade'
           duration={1000}
           indicators={true}
-          IndicatorIcon={ items.map( (item, i) => <CarouselCard key={i} carouselItems={item} />) }
+          IndicatorIcon={ items.map( (item, i) => <ThumbnailCard key={i} carouselItems={item} />) }
           indicatorIconButtonProps={{
             style: {
-                padding: '10px', 
-                color: 'blue' 
+               margin: '0 10px',
+               opacity:0.5
             }
         }}
         activeIndicatorIconButtonProps={{
             style: {
-                backgroundColor: 'red'
-            }
+              boxShadow:"5px gray",
+              borderRadius:"10px",
+              opacity:1
+            },
         }}
         indicatorContainerProps={{
-            style: {
-                marginTop: '50px', 
-                textAlign: 'right' 
-            }
     
         }}
           cycleNavigation={true}
           navButtonsAlwaysVisible={true}
           navButtonsAlwaysInvisible={false}
-        //   navButtonsWrapperProps={{  
-        //     style: {
-        //         bottom: '0',
-        //         top: 'unset'
-        //     }
-        // }}
         >
             {
                 items.map( (item, i) => <CarouselCard key={i} carouselItems={item} /> )
             }
         </Carousel>
+       
+        </div>
     )
 }
 

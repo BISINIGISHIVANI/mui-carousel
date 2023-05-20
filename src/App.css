@@ -7,3 +7,11 @@
   width: 300px;
   height: 300px;
 }
+.thumbnail-card{
+  flex-wrap: wrap;
+  max-width: 140px;
+  max-height: 140px;
+}
+/* .carousel-template{
+ 
+} */
